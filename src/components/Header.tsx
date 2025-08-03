@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface HeaderProps {
   currentPage: string;
   onNavigate: (page: string) => void;
@@ -9,7 +11,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 ">
           <button
-            onClick={() => onNavigate("home")}
+            onClick={() => onNavigate("/")}
             className="flex items-center hover:opacity-80 transition-opacity"
           >
             <div className="w-13 h-13 flex items-center justify-center">
@@ -21,28 +23,44 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
           </button>
 
           <nav className="flex flex-row items-center gap-x-9">
-            <button
-              onClick={() => onNavigate("home")}
-              className={`text-sm font-medium p-5 transition-colors hover:text-blue-600 ${
-                currentPage === "home"
-                  ? "text-blue-600 border-b-2 border-blue-600 pb-1"
-                  : "text-slate-600"
-              } `}
-            >
-              Home
-            </button>
+            <Link href={"/"}>
+              <button
+                onClick={() => onNavigate("/")}
+                className={`text-sm font-medium p-5 transition-colors hover:text-blue-600 ${
+                  currentPage === "/"
+                    ? "text-blue-600 border-b-2 border-blue-600 pb-1"
+                    : "text-slate-600"
+                } `}
+              >
+                Home
+              </button>
+            </Link>
 
-            <button
-              onClick={() => onNavigate("case-studies")}
-              className={`text-sm  font-medium p-5 transition-colors hover:text-blue-600 ${
-                currentPage === "case-studies"
-                  ? "text-blue-600 border-b-2 border-blue-600 pb-1"
-                  : "text-slate-600"
-              }`}
-            >
-              Case Studies
-            </button>
-            <button>Contact</button>
+            <Link href={"/case-studies"}>
+              <button
+                onClick={() => onNavigate("/case-studies")}
+                className={`text-sm  font-medium p-5 transition-colors hover:text-blue-600 ${
+                  currentPage === "/case-studies"
+                    ? "text-blue-600 border-b-2 border-blue-600 pb-1"
+                    : "text-slate-600"
+                }`}
+              >
+                Case Studies
+              </button>
+            </Link>
+
+            <Link href={"/contact"}>
+              <button
+                onClick={() => onNavigate("/contact")}
+                className={`text-sm font-medium p-5 transition-colors hover:text-blue-600 ${
+                  currentPage === "/contact"
+                    ? "text-blue-600 border-b-2 border-blue-600 pb-1"
+                    : "text-slate-600"
+                } `}
+              >
+                Contact
+              </button>
+            </Link>
           </nav>
         </div>
       </div>
