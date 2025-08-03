@@ -1,5 +1,4 @@
-// File: src/app/ClientWrapper.tsx
-"use client"; // This makes *just this component* a client component
+"use client";
 
 import React from "react";
 import Header from "@/components/Header";
@@ -10,7 +9,6 @@ export default function ClientWrapper({
 }: {
   children: React.ReactNode;
 }) {
-  // You can now safely use hooks like useEffect, useState, etc.
   return (
     <>
       <Header currentPage="home" onNavigate={(page) => console.log(page)} />
