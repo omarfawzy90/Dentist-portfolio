@@ -7,7 +7,6 @@ import Addbutton from "@/components/Addbutton";
 import { getCaseStudies } from "@/app/actions/getAllCases";
 import { useEffect, useState } from "react";
 import { updateCase } from "../actions/UpdateCase";
-import Image from "next/image";
 
 type Case = {
   id: number;
@@ -77,7 +76,7 @@ export default function CaseStudiesSection() {
                 className="group bg-white rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-blue-200"
               >
                 <div className="relative h-48 overflow-hidden">
-                  <Image
+                  <img
                     src={study.imageUrl || "/placeholder.jpg"}
                     alt={study.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"

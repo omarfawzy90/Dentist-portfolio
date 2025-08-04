@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 type Study = {
   id: number;
   title: string;
@@ -32,11 +30,9 @@ export default function CaseStudiesSection({ caseStudies }: Props) {
                 className="group bg-white rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-blue-200"
               >
                 <div className="relative h-48 overflow-hidden">
-                  <Image
+                  <img
                     src={study.imageUrl}
                     alt={study.title}
-                    width={400}
-                    height={300}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
