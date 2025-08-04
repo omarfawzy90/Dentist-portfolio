@@ -1,5 +1,4 @@
 export const dynamic = "force-dynamic";
-
 import Addbutton from "@/components/Addbutton";
 import { getCaseStudies } from "@/app/actions/getAllCases";
 

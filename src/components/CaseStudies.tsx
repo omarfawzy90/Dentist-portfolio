@@ -1,7 +1,7 @@
-import { getSafeCaseStudies } from "@/app/actions/getcases";
+import { getCaseStudies } from "@/app/actions/getAllCases";
 
 export default async function CaseStudiesSection() {
-  const caseStudies = await getSafeCaseStudies();
+  const caseStudies = await getCaseStudies();
 
   return (
     <section className="mt-2 mb-8 pb-5 lg:mt-24 bg-white-50">
