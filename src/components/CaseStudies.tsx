@@ -15,7 +15,7 @@ export default async function CaseStudiesSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {caseStudies.map((study) => (
+          {caseStudies.map((study: any) => (
             <div
               key={study.id}
               className="group bg-white rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-blue-200"
