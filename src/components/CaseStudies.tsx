@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getCaseStudies } from "@/app/actions/getAllCases";
 
 export default async function CaseStudiesSection() {
