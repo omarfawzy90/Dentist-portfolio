@@ -15,6 +15,7 @@ export default async function CaseStudiesSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           {caseStudies.map((study: any) => (
             <div
               key={study.id}
