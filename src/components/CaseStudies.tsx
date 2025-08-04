@@ -13,33 +13,38 @@ export default async function CaseStudiesSection() {
             dentistry and personalized care
           </p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          {caseStudies.map((study: any) => (
-            <div
-              key={study.id}
-              className="group bg-white rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-blue-200"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={study.imageUrl}
-                  alt={study.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
+          {caseStudies.map(
+            (study: {
+              id: number;
+              title: string;
+              description: string;
+              imageUrl: string;
+            }) => (
+              <div
+                key={study.id}
+                className="group bg-white rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-blue-200"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={study.imageUrl}
+                    alt={study.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
 
-              <div className="p-6 space-y-3">
-                <h3 className="text-lg font-medium text-slate-800 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
-                  {study.title}
-                </h3>
+                <div className="p-6 space-y-3">
+                  <h3 className="text-lg font-medium text-slate-800 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
+                    {study.title}
+                  </h3>
 
-                <p className="text-sm text-slate-600 font-light line-clamp-3 leading-relaxed">
-                  {study.description}
-                </p>
+                  <p className="text-sm text-slate-600 font-light line-clamp-3 leading-relaxed">
+                    {study.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
     </section>
