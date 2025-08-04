@@ -38,31 +38,21 @@ export default function Footer() {
             </h3>
             <div className="space-y-2">
               <a
-                href="#home"
+                href="/"
                 className="block hover:text-blue-400 transition-colors duration-200"
               >
                 Home
               </a>
+
               <a
-                href="#services"
-                className="block hover:text-blue-400 transition-colors duration-200"
-              >
-                Services
-              </a>
-              <a
-                href="#case-studies"
+                href="/case-studies"
                 className="block hover:text-blue-400 transition-colors duration-200"
               >
                 Case Studies
               </a>
+
               <a
-                href="#about"
-                className="block hover:text-blue-400 transition-colors duration-200"
-              >
-                About
-              </a>
-              <a
-                href="#contact"
+                href="/contact"
                 className="block hover:text-blue-400 transition-colors duration-200"
               >
                 Contact
