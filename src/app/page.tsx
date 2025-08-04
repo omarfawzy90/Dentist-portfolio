@@ -1,4 +1,5 @@
 "use client";
+export const dynamic = "force-dynamic";
 
 import CaseStudiesSection from "@/components/CaseStudies";
 import Header from "../components/Header";
