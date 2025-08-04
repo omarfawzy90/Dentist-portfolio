@@ -35,6 +35,7 @@ export default function ImageUpload({
         <div className="mt-4">
           <UploadButton
             endpoint="caseImageUploader"
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             onClientUploadComplete={(res: any) => {
               setIsUploading(false);
               const url = res?.[0]?.url;
@@ -44,6 +45,7 @@ export default function ImageUpload({
               }
             }}
             onUploadBegin={() => setIsUploading(true)}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             onUploadError={(err: any) => {
               console.error("Upload error:", err);
               setIsUploading(false);

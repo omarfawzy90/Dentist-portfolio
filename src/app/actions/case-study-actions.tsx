@@ -17,6 +17,7 @@ interface FormActionResult {
 }
 
 export default async function addCaseStudy(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   _prevState: any,
   formData: FormData
 ): Promise<FormActionResult> {

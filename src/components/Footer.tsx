@@ -7,6 +7,8 @@ import {
   Twitter,
 } from "lucide-react";
 
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="bg-slate-800 text-slate-300">
@@ -37,26 +39,26 @@ export default function Footer() {
               Quick Links
             </h3>
             <div className="space-y-2">
-              <a
+              <Link
                 href="/"
                 className="block hover:text-blue-400 transition-colors duration-200"
               >
                 Home
-              </a>
+              </Link>
 
-              <a
+              <Link
                 href="/case-studies"
                 className="block hover:text-blue-400 transition-colors duration-200"
               >
                 Case Studies
-              </a>
+              </Link>
 
-              <a
+              <Link
                 href="/contact"
                 className="block hover:text-blue-400 transition-colors duration-200"
               >
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
 
