@@ -1,9 +1,40 @@
-export const dynamic = "force-dynamic";
+"use client";
+
+import { useTransition } from "react";
+import { useRouter } from "next/navigation";
+import { deleteCase } from "@/app/actions/deleteCase";
 import Addbutton from "@/components/Addbutton";
 import { getCaseStudies } from "@/app/actions/getAllCases";
+import { useEffect, useState } from "react";
 
-export default async function CaseStudiesSection() {
-  const caseStudies = await getCaseStudies();
+type Case = {
+  id: number;
+  title: string;
+  description: string;
+  imageUrl: string;
+};
+
+export default function CaseStudiesSection() {
+  const [caseStudies, setCaseStudies] = useState<Case[]>([]);
+  const [isPending, startTransition] = useTransition();
+  const router = useRouter();
+
+  useEffect(() => {
+    const fetchCases = async () => {
+      const data = await getCaseStudies();
+      setCaseStudies(data);
+    };
+    fetchCases();
+  }, []);
+
+  const handleDelete = (id: number) => {
+    if (confirm("Are you sure you want to delete this case?")) {
+      startTransition(async () => {
+        await deleteCase(id);
+        router.refresh();
+      });
+    }
+  };
 
   return (
     <section className="mt-2 mb-8 pb-5 lg:mt-24 bg-white-50">
@@ -21,37 +52,38 @@ export default async function CaseStudiesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {caseStudies.length > 0 ? (
-            caseStudies.map(
-              (study: {
-                id: number;
-                title: string;
-                description: string;
-                imageUrl: string;
-              }) => (
-                <div
-                  key={study.id}
-                  className="group bg-white rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-blue-200"
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={study.imageUrl || "/placeholder.jpg"}
-                      alt={study.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-
-                  <div className="p-6 space-y-3">
-                    <h3 className="text-lg font-medium text-slate-800 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
-                      {study.title}
-                    </h3>
-
-                    <p className="text-sm text-slate-600 font-light line-clamp-3 leading-relaxed">
-                      {study.description}
-                    </p>
-                  </div>
+            caseStudies.map((study) => (
+              <div
+                key={study.id}
+                className="group bg-white rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-blue-200"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={study.imageUrl || "/placeholder.jpg"}
+                    alt={study.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-              )
-            )
+
+                <div className="p-6 space-y-3">
+                  <h3 className="text-lg font-medium text-slate-800 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
+                    {study.title}
+                  </h3>
+
+                  <p className="text-sm text-slate-600 font-light line-clamp-3 leading-relaxed">
+                    {study.description}
+                  </p>
+
+                  <button
+                    onClick={() => handleDelete(study.id)}
+                    className="text-sm text-red-500 hover:underline disabled:opacity-50 hover:cursor-pointer"
+                    disabled={isPending}
+                  >
+                    {isPending ? "Deleting..." : "Delete"}
+                  </button>
+                </div>
+              </div>
+            ))
           ) : (
             <div className="col-span-full text-center text-slate-500 text-lg">
               No case studies found.

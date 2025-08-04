@@ -26,7 +26,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
             <Link href={"/"}>
               <button
                 onClick={() => onNavigate("/")}
-                className={`text-sm font-medium p-5 transition-colors hover:text-blue-600 ${
+                className={`text-sm font-medium p-5 transition-colors hover:cursor-pointer hover:text-blue-600 ${
                   currentPage === "/"
                     ? "text-blue-600 border-b-2 border-blue-600 pb-1"
                     : "text-slate-600"
@@ -39,7 +39,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
             <Link href={"/case-studies"}>
               <button
                 onClick={() => onNavigate("/case-studies")}
-                className={`text-sm  font-medium p-5 transition-colors hover:text-blue-600 ${
+                className={`text-sm  font-medium p-5 transition-colors hover:cursor-pointer hover:text-blue-600 ${
                   currentPage === "/case-studies"
                     ? "text-blue-600 border-b-2 border-blue-600 pb-1"
                     : "text-slate-600"
@@ -52,7 +52,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
             <Link href={"/contact"}>
               <button
                 onClick={() => onNavigate("/contact")}
-                className={`text-sm font-medium p-5 transition-colors hover:text-blue-600 ${
+                className={`text-sm font-medium p-5 transition-colors hover:cursor-pointer hover:text-blue-600 ${
                   currentPage === "/contact"
                     ? "text-blue-600 border-b-2 border-blue-600 pb-1"
                     : "text-slate-600"
