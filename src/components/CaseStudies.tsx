@@ -1,6 +1,8 @@
-import { caseStudies } from "@/app/actions/getcases";
+import { getSafeCaseStudies } from "@/app/actions/getcases";
 
 export default async function CaseStudiesSection() {
+  const caseStudies = await getSafeCaseStudies();
+
   return (
     <section className="mt-2 mb-8 pb-5 lg:mt-24 bg-white-50">
       <div className="max-w-auto mx-auto px-6 sm:px-8 lg:px-12">
