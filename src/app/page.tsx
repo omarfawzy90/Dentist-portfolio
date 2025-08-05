@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getCaseStudies } from "@/app/actions/getAllCases";
 import CaseStudiesSection from "@/components/CaseStudies";
 import Hero from "../components/Hero";
